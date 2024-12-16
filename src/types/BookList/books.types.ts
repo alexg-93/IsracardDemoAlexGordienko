@@ -15,6 +15,7 @@ export interface IBookProps {
 }
 
 export interface IBookItemProps {
+    number: number
     title: string;
     releaseDate: string;
     cover: string;

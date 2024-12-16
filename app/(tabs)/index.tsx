@@ -1,15 +1,30 @@
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet,SafeAreaView ,ActivityIndicator} from 'react-native';
+import { useFetchBooks } from '@/src/hooks/useFetchBooks';
+import BookList from '@/src/Components/BookList';
+import { BookTyped } from '@/src/services/harryPotterBooks.types';
 
-export default function Index() {
+export default function Home() {
+  const { data, isLoading, error } = useFetchBooks();
+
+  //TODO : handle error -> return error message
+
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Home Screen</Text>
-    </View>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+      {isLoading && <ActivityIndicator color="black" size={'large'}/>}
+      {data && <BookList books={data} />}
+      </View>
+     
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
+  container: {
+    flex:1,
+  }
+});
