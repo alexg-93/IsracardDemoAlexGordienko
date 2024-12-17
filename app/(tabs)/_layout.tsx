@@ -30,6 +30,7 @@ export default function TabLayout() {
         name="favorites"
         options={{
           title: 'Favorites',
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <Feather
               name="heart"

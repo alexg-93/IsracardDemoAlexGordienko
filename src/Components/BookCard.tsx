@@ -21,6 +21,7 @@ const BookCard = (props: IBookItemProps) => {
   }, [props.number]);
 
   return (
+    <View style={styles.shadowContainerStyle}>
     <TouchableOpacity
       style={styles.cardContainerStyle}
       onPress={navigateToBookDetailsCallback}
@@ -35,6 +36,7 @@ const BookCard = (props: IBookItemProps) => {
         </Text>
       </View>
     </TouchableOpacity>
+    </View>
   );
 };
 
@@ -47,6 +49,15 @@ const styles = StyleSheet.create({
     width: width * 0.8,
     alignSelf: 'center',
     overflow: 'hidden',
+  },
+  shadowContainerStyle: {
+    // Shadow for iOS
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    // Shadow for Android
+    elevation: 5,
   },
   cardTextLabelStyle: {
     color: 'white',

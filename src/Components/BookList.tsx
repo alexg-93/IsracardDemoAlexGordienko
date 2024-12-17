@@ -45,12 +45,15 @@ const BookList = ({ books }: IBookProps) => {
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={ItemSeparatorComponent}
         ListEmptyComponent={ListEmptyComponent}
+        contentContainerStyle={styles.contentContainerStyle}
     />
   );
 };
 
 const styles = StyleSheet.create({
-  
+  contentContainerStyle:{
+    paddingVertical:20
+  }
 });
 
 export default BookList;
