@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import {
   StyleSheet,
   View,
@@ -8,14 +8,22 @@ import {
   Image,
 } from 'react-native';
 import { IBookItemProps } from '@/src/types/BookList/books.types';
+import { useNavigateBookDetails } from '../hooks/useNavigateBookDetails';
 
 const { width } = Dimensions.get('window');
 
 const BookCard = (props: IBookItemProps) => {
+
+  const navigateToBookDetails = useNavigateBookDetails();
+
+  const navigateToBookDetailsCallback = useCallback(() => {
+    navigateToBookDetails(props.number);
+  }, [props.number]);
+
   return (
     <TouchableOpacity
       style={styles.cardContainerStyle}
-      onPress={() => console.log(props.number)}
+      onPress={navigateToBookDetailsCallback}
     >
       <View style={styles.imageContainer}>
         <Image source={{ uri: props.cover }} style={styles.imgStyle} />

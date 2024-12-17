@@ -1,7 +1,6 @@
 import { Text, View, StyleSheet,SafeAreaView ,ActivityIndicator} from 'react-native';
 import { useFetchBooks } from '@/src/hooks/useFetchBooks';
 import BookList from '@/src/Components/BookList';
-import { BookTyped } from '@/src/services/harryPotterBooks.types';
 
 export default function Home() {
   const { data, isLoading, error } = useFetchBooks();
