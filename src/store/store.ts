@@ -9,7 +9,7 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage: AsyncStorage,
-  whitelist: ['favoriteBooksReducer'], // only persist favorites
+  whitelist: ['favorites'], // only persist favorites
 };
 
 

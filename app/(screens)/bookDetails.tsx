@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useCallback} from 'react';
 import {
   StyleSheet,
   View,
@@ -12,14 +12,25 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import { useCachedBooks } from '@/src/hooks/useCachedBooks';
 import Badge from '@/src/Components/Badge';
+import { BookTyped } from '@/src/services/harryPotterBooks.types';
+import { useFavorite } from '@/src/hooks/useFavorite';
 
 
 const BookDetails = () => {
 
   const { bookId } = useLocalSearchParams(); // get the passed id from params
-  const { findBookById } = useCachedBooks();
+  const { findBookById } = useCachedBooks(); // get the book object by id
 
   const book = findBookById(+bookId); // get the book object by id
+  const { toggleFavorite , isFavorite } = useFavorite(book as BookTyped);
+
+  const handleFavoritePress = useCallback(() => {
+    toggleFavorite(book as BookTyped);
+  }, [book,toggleFavorite]);
+
+  const iconColor = isFavorite ? '#D91656' : "#9AA6B2";
+  const iconName = isFavorite ? "heart" : "hearto";
+
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -43,12 +54,10 @@ const BookDetails = () => {
           />
 
           <TouchableOpacity
-            onPress={() => {
-              /* TODO : handle add to favorite and remove from favorite*/
-            }}
+            onPress={handleFavoritePress}
             style={styles.favoriteButtonStyle}
           >
-            <AntDesign name="heart" size={24} color={'red'} />
+            <AntDesign name={iconName} size={24} color={iconColor}  />
           </TouchableOpacity>
         </View>
 
