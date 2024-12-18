@@ -1,4 +1,63 @@
-# Welcome to your Expo app 👋
+# 🪄 The Wizarding World Book App** 📚✨
+
+Welcome to a magical React Native app built to bring the world of Harry Potter books to your fingertips.
+This project showcases an enchanting blend of functionality, creativity, and technical expertise.
+Whether you're a Potterhead or a React Native enthusiast, there's something in this app for you!
+
+---
+
+## 🎯 **Features**
+
+### **🏠 Home Tab Screen**
+- Browse a list of **Harry Potter books**, fetched from [Potter API](https://potterapi-fedeperin.vercel.app/en/books).
+- Data caching for **24 hours**, ensuring a smooth user experience even without an internet connection.
+- View key details for each book:
+  - **Title**
+  - **Release Date**
+  - **Cover Image**
+ 
+    
+### **❤️ Favorites Tab Screen**
+- View all books marked as favorites.
+- Persist favorites using **local storage**, ensuring they are saved even after closing the app.
+- Remove books from favorites at any time.
+
+### **📖 Book Details Screen**
+- Dive into detailed information about each book:
+  - **Title**
+  - **Release Date**
+  - **Description**
+  - **Cover Image**
+  - **Number of Pages**
+- Mark a book as a **Favorite** with the tap of a button.
+
+### **🔍 Search**
+- Search books by **Title** across both tabs:
+  - In **Home**, find books by title.
+  - In **Favorites**, filter books by both title and description.
+- Implements **Debounce** for an optimized search experience.
+
+### **🔀 Sorting**
+- Sort books by:
+  - **Title** (A–Z)
+  - **Number of Pages**
+  - **Release Date**
+
+---
+
+## 🎨 **Extra Features**
+- **Grid View** toggle for a visually stunning book display.
+---
+
+## 💡 **Tech Stack**
+- **React Native Expo** for mobile app development.
+- **Redux Toolkit** for Client state management.
+- **Redux Persist** for local storage of favorites.
+- **React Query** for efficient data fetching.
+---
+
+## 🚀 **How to Run the App**
+
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
